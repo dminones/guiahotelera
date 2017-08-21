@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Costa Galana Hotel",
+      "address": "Bv. Marítimo Patricio Peralta Ramos 5725 Mar del Plata",
+      "phone": "Tel. 4105000",
+      "email": "reservas@hotelcostagalana.com",
+      "web": "http://hotelcostagalana.com",
+      "category": "Hotel 5 estrellas",
+      "thumbnail": "https://www.hotelcostagalana.com/webimg/slides/img_t-24.jpg",
+      "location" : {
+        "long" : 21211,
+        "lat" : 21211
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hermitage Hotel",
+      "address": "Av. Colón 1643 Mar del Plata",
+      "phone": " Tel. 4519081/86",
+      "email": "reservas@hermitagehotel.com.ar",
+      "web": "http://hermitagehotel.com.ar",
+      "category": "Hotel 5 estrellas",
+      "thumbnail": "http://www.hermitagehotel.com.ar/img_dg/slide_home/02.jpg",
+      "location" : {
+        "long" : 21211,
+        "lat" : 21211
+      }
+    },
+    {
+      "id": 3,
+      "name": "Amerian Hotel",
+      "address": "Mar del Plata Av. Libertad 2936",
+      "phone": "495-5739",
+      "email": "reservasbue@amerian.com",
+      "web": "http://amerian.com",
+      "category": "Hotel 4 estrellas",
+      "thumbnail": "https://b.otcdn.com/imglib/hotelfotos/8/168/hotel-amerian-merit-mar-del-plata-019.jpg",
+      "location" : {
+        "long" : 21211,
+        "lat" : 21211
+      }
+    }
+  ]
+}
