@@ -91,7 +91,7 @@ class Listing extends Component {
 
   updateHotels() {
     let self = this
-    fetch('/data/hotels.json')  
+    fetch(process.env.PUBLIC_URL+'/data/hotels.json')  
       .then(function(response) {
         response.json().then(function(json) {
           console.log(json)
