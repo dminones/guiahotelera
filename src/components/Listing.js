@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Filtering } from './index'
+import { Link } from 'react-router-dom'
+import slugify from '../utils/Slugify'
 import banner from '../images/ad_350x350.jpg'
 import '../css/icons.css';
 import './Listing.css';
@@ -14,7 +16,7 @@ function ResultListItem({ item }) {
   return(
     <div className="col-lg-12 col-md-12">
       <div className="listing-item-container list-layout">
-        <a href="/hotel/dsada" className="listing-item">         
+        <Link to={ '/hotel/'+slugify(item.name) } className="listing-item">         
           <div className="listing-item-image">
             <img src={ item.thumbnail } alt={ item.name } />
             <span className="tag">{ item.category }</span>
@@ -22,18 +24,20 @@ function ResultListItem({ item }) {
           <div className="listing-item-content">
             <div className="listing-item-inner">
               <h3>{ item.name }</h3>
-              <span><i className="im im-icon-Location-2" style={{fontSize:'20px', marginRight:'10px'}} ></i>{ item.address }
+              <span><i className="fa fa-map-marker" style={{fontSize:'20px', marginRight:'10px'}} ></i>{ item.address }
               <br/><i className="im im-icon-Telephone" style={{fontSize:'20px', marginRight:'10px'}} ></i>{ item.phone }</span>
-              <br/>
+              {/*
+                <br/>
               <span>
                 <a href={ item.web } target="_blank" className="Icon-link">
                   <i className="sl sl-icon-link" style={{marginRight:'10px'}}></i>
                   {item.web}
                 </a>
                 </span>
+              */}
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   )

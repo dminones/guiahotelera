@@ -1,17 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Gallery from 'react-images';
 
-export default function Header({ src, title }) {
-  const headerStyle = {   margin:'0px auto',
-                          backgroundColor:'transparent',
-                          padding:'0px', 
-                          height: '300px',
-                          overflow: 'hidden',
-                          position: 'relative',
-                          backgroundImage: 'url('+src+')',
-                          backgroundAttachment: 'fixed',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'no-repeat',
-                          backgroundSize: 'cover'
+function TitleOverlay ({ title }) {
+
+  if (title == null) {
+    return null
   }
 
   const contentStyle = {
@@ -21,6 +14,15 @@ export default function Header({ src, title }) {
     zIndex: '6',
     textAlign: 'center'
   }
+
+  const overlayStyle = {
+    width: '100%',
+    height: '100%',
+    backgroundColor:'#000',
+    opacity: '0.3',
+    position: 'absolute'
+  } 
+
 
   const h1Style = {
     color: 'rgb(255, 255, 255)',
@@ -35,20 +37,135 @@ export default function Header({ src, title }) {
     display: 'inline-block'
   }
 
-  const overlayStyle = {
-    width: '100%',
+  return (
+      <div>
+        <div style={ overlayStyle }></div>
+        <div style={ contentStyle }>
+          <h1 style={ h1Style } >{ title }</h1>
+        </div>
+      </div>
+  )
+}
+
+function MoreButton({ onClick }) {
+  if (onClick == null) {
+    return null
+  }
+  
+  var buttonStyle = {
+    bottom: '20px',
+    top: 'unset',
+    right: '0px',
+    position: 'absolute',
+  }
+
+  var buttonContainerStyle= {
+    textAlign: 'right',
+    bottom: '0px',
     height: '100%',
-    backgroundColor:'#000',
-    opacity: '0.3',
-    position: 'absolute'
-  } 
+    position: 'relative',
+  }
 
   return(
-    <div  style={ headerStyle } >
-      <div style={ overlayStyle }></div>
-      <div style={ contentStyle }>
-        <h1 style={ h1Style } >{ title }</h1>
-      </div>
+    <div style={buttonContainerStyle} className="container">
+      <a style={ buttonStyle} onClick={onClick} className="button"> Ver Fotos</a>
     </div>
-  )
+  )    
+}
+
+export default class Header extends Component {
+
+  constructor() {
+    super()
+    let self = this
+    this.state= {
+      lightboxIsOpen: false,
+      currentImage: 0,
+      shouldShowGallery: function(){return (self.props.gallery != null)}
+    }
+
+    this.openLightbox = this.openLightbox.bind(this);
+    this.closeLightbox = this.closeLightbox.bind(this);
+    this.nextImage = this.nextImage.bind(this);
+    this.prevImage = this.prevImage.bind(this);
+  }
+
+  openLightbox () {
+    console.log("Abrir Galeria")
+    this.setState({
+      lightboxIsOpen: true
+    })
+  }
+
+  closeLightbox () {
+    console.log("Cerrar Galeria")
+    this.setState({
+      lightboxIsOpen: false
+    })
+  }
+
+  nextImage () {
+    console.log("nextImage Galeria")
+    this.setState({
+      currentImage: this.state.currentImage+1
+    })
+  }
+
+  
+  prevImage () {
+    console.log("nextImage Galeria")
+    this.setState({
+      currentImage: this.state.currentImage-1
+    })
+  }
+
+  render() {
+    const defaults = {
+      headerSize : this.props.headerSize!=null ? this.props.headerSize : 'Small',
+      headerFixed : this.props.headerFixed===null ? true : this.props.headerFixed,
+    }
+
+    const sizes = {
+      'Small' : '300px',
+      'Big' : '500px',
+      'Full' : '100%'
+    }
+
+    var headerStyle = {   margin:'0px auto',
+                            backgroundColor:'transparent',
+                            padding:'0px', 
+                            overflow: 'hidden',
+                            position: 'relative',
+                            backgroundImage: 'url('+this.props.src+')',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover', 
+                            maxHeight: '100%'
+    }
+    headerStyle.backgroundAttachment = (defaults.headerFixed) ? 'fixed' : 'scroll'
+    headerStyle.height = sizes[defaults.headerSize]
+    headerStyle.cursor = this.state.shouldShowGallery() ? 'pointer' : 'inherit'
+
+    return(
+      <div>
+        <div onClick={this.openLightbox} style={ headerStyle } >
+          <TitleOverlay title={this.props.title} />
+          { this.state.shouldShowGallery() ? (<MoreButton onClick={this.openLightbox} />) : null }
+        </div>
+          {
+            this.state.shouldShowGallery() ?
+            (<Gallery
+              currentImage={this.state.currentImage}
+              images={this.props.gallery}
+              isOpen={this.state.lightboxIsOpen}
+              onClose={this.closeLightbox}
+              onClickNext={this.nextImage}
+              onClickPrev={this.prevImage}
+            />) :
+            null
+          }
+      </div>
+    )
+  }
+  
 }

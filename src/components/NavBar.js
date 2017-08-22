@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import logo from '../images/logo-argentina.jpg';
-import '../css/style.css';
+import { Link, NavLink } from 'react-router-dom'
+
 import { getMainMenu } from '../data/'
+
+import logo from '../images/logo-argentina.jpg';
 
 function Menu ({ menu }) {
   if(menu instanceof Array) {
@@ -19,7 +21,7 @@ function Menu ({ menu }) {
 
 function MenuItem ({ menuItem }) {
   return (
-    <li><a href={ menuItem.href } >{menuItem.html}</a>
+    <li><NavLink to={ menuItem.href } activeClassName="current" >{menuItem.html}</NavLink>
     {(() => {
       if(menuItem.children instanceof Array) {
         return (
@@ -44,7 +46,7 @@ export default class NavBar extends Component {
 		      <div id="header" >
 		        <div className="container">     
 		            <div id="logo">
-		              <a href="/"><img src={ logo } alt="" /></a>
+		              <Link to="/"><img src={ logo } alt="" /></Link>
 		            </div>
 
 		            <div className="menu-responsive">

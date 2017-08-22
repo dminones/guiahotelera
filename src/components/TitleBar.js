@@ -11,16 +11,15 @@ function BreadCrumbs () {
   )
 }
 
-export default function TitleBar ({ destination }) {
+export default function TitleBar ({ title, subtitle}) {
   return (
     <div id="titlebar" className="gradient">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
 
-            <h2>Alojamientos en { destination } </h2><span>Grid Layout With Sidebar</span>
-            <BreadCrumbs />
-
+            <h2>{ title }</h2><span>{subtitle}</span>
+            {/*<BreadCrumbs />*/}
           </div>
         </div>
       </div>

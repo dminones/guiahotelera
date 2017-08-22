@@ -3,20 +3,22 @@
     {
       "id": 1,
       "name": "Costa Galana Hotel",
+      "address": "Av. Colón 1643 Mar del Plata",
+      "phone": " Tel. 4519081/86",
+      "email": "reservas@hermitagehotel.com.ar",
+      "overview": "Praesent laoreet rutrum eleifend. Phasellus pretium lectus et tincidunt tempus. Nam mattis, augue quis iaculis condimentum, ligula justo luctus nisl, non dictum metus nisi vitae diam. Pellentesque a eros feugiat metus lacinia tincidunt at id mauris. Ut commodo massa in lacinia imperdiet. Nullam a imperdiet elit. Integer imperdiet euismod lacus, eu mollis tortor vehicula eget. Aenean ultrices lacinia iaculis. Maecenas orci justo, ultrices eu finibus a, hendrerit at leo. Integer porta ante sit amet odio feugiat, sit amet tempor elit pellentesque. Vestibulum sollicitudin ipsum non ultrices interdum. Mauris tristique blandit purus ut tempor. Nam tincidunt augue magna, at elementum lacus pellentesque non.",
       "address": "Bv. Marítimo Patricio Peralta Ramos 5725 Mar del Plata",
-      "phone": "Tel. 4105000",
-      "email": "reservas@hotelcostagalana.com",
-      "web": "http://hotelcostagalana.com",
       "category": "Hotel 5 estrellas",
       "thumbnail": "https://www.hotelcostagalana.com/webimg/slides/img_t-24.jpg",
       "location" : {
-        "long" : 21211,
-        "lat" : 21211
+        "lat" : 25.0112183,
+        "lng" : 121.52067570000001
       }
     },
     {
       "id": 2,
       "name": "Hermitage Hotel",
+      "overview": "Praesent laoreet rutrum eleifend. Phasellus pretium lectus et tincidunt tempus. Nam mattis, augue quis iaculis condimentum, ligula justo luctus nisl, non dictum metus nisi vitae diam. Pellentesque a eros feugiat metus lacinia tincidunt at id mauris. Ut commodo massa in lacinia imperdiet. Nullam a imperdiet elit. Integer imperdiet euismod lacus, eu mollis tortor vehicula eget. Aenean ultrices lacinia iaculis. Maecenas orci justo, ultrices eu finibus a, hendrerit at leo. Integer porta ante sit amet odio feugiat, sit amet tempor elit pellentesque. Vestibulum sollicitudin ipsum non ultrices interdum. Mauris tristique blandit purus ut tempor. Nam tincidunt augue magna, at elementum lacus pellentesque non.",
       "address": "Av. Colón 1643 Mar del Plata",
       "phone": " Tel. 4519081/86",
       "email": "reservas@hermitagehotel.com.ar",
@@ -24,9 +26,17 @@
       "category": "Hotel 5 estrellas",
       "thumbnail": "http://www.hermitagehotel.com.ar/img_dg/slide_home/02.jpg",
       "location" : {
-        "long" : 21211,
-        "lat" : 21211
-      }
+        "lat" : 25.0112183,
+        "lng" : 121.52067570000001
+      },
+      "gallery" : [
+        {
+          "src": "https://www.hotelcostagalana.com/webimg/slides/img_t-24.jpg"
+        },
+        {
+          "src": "https://b.otcdn.com/imglib/hotelfotos/8/168/hotel-amerian-merit-mar-del-plata-019.jpg"
+        }
+      ]
     },
     {
       "id": 3,
@@ -38,9 +48,17 @@
       "category": "Hotel 4 estrellas",
       "thumbnail": "https://b.otcdn.com/imglib/hotelfotos/8/168/hotel-amerian-merit-mar-del-plata-019.jpg",
       "location" : {
-        "long" : 21211,
-        "lat" : 21211
-      }
+        "lat" : 25.0112183,
+        "lng" : 121.52067570000001
+      },
+      "gallery" : [
+        {
+          "src": "https://www.hotelcostagalana.com/webimg/slides/img_t-24.jpg"
+        },
+        {
+          "src": "https://www.hotelcostagalana.com/webimg/slides/img_t-24.jpg"
+        }
+      ]
     },
     {
       "id": 4,
@@ -51,14 +69,15 @@
       "web": "http://hotelcostagalana.com",
       "category": "Hotel 5 estrellas",
       "thumbnail": "https://www.hotelcostagalana.com/webimg/slides/img_t-24.jpg",
-      "location" : {
-        "long" : 21211,
-        "lat" : 21211
+     "location" : {
+        "lat" : 25.0112183,
+        "lng" : 121.52067570000001
       }
     },
     {
       "id": 5,
       "name": "Hermitage Hotel",
+      "overview": "Praesent laoreet rutrum eleifend. Phasellus pretium lectus et tincidunt tempus. Nam mattis, augue quis iaculis condimentum, ligula justo luctus nisl, non dictum metus nisi vitae diam. Pellentesque a eros feugiat metus lacinia tincidunt at id mauris. Ut commodo massa in lacinia imperdiet. Nullam a imperdiet elit. Integer imperdiet euismod lacus, eu mollis tortor vehicula eget. Aenean ultrices lacinia iaculis. Maecenas orci justo, ultrices eu finibus a, hendrerit at leo. Integer porta ante sit amet odio feugiat, sit amet tempor elit pellentesque. Vestibulum sollicitudin ipsum non ultrices interdum. Mauris tristique blandit purus ut tempor. Nam tincidunt augue magna, at elementum lacus pellentesque non.",
       "address": "Av. Colón 1643 Mar del Plata",
       "phone": " Tel. 4519081/86",
       "email": "reservas@hermitagehotel.com.ar",
@@ -66,13 +85,14 @@
       "category": "Hotel 5 estrellas",
       "thumbnail": "http://www.hermitagehotel.com.ar/img_dg/slide_home/02.jpg",
       "location" : {
-        "long" : 21211,
-        "lat" : 21211
+        "lat" : 25.0112183,
+        "lng" : 121.52067570000001
       }
     },
     {
       "id": 6,
       "name": "Amerian Hotel",
+      "overview": "Praesent laoreet rutrum eleifend. Phasellus pretium lectus et tincidunt tempus. Nam mattis, augue quis iaculis condimentum, ligula justo luctus nisl, non dictum metus nisi vitae diam. Pellentesque a eros feugiat metus lacinia tincidunt at id mauris. Ut commodo massa in lacinia imperdiet. Nullam a imperdiet elit. Integer imperdiet euismod lacus, eu mollis tortor vehicula eget. Aenean ultrices lacinia iaculis. Maecenas orci justo, ultrices eu finibus a, hendrerit at leo. Integer porta ante sit amet odio feugiat, sit amet tempor elit pellentesque. Vestibulum sollicitudin ipsum non ultrices interdum. Mauris tristique blandit purus ut tempor. Nam tincidunt augue magna, at elementum lacus pellentesque non.",
       "address": "Mar del Plata Av. Libertad 2936",
       "phone": "495-5739",
       "email": "reservasbue@amerian.com",
@@ -80,8 +100,8 @@
       "category": "Hotel 4 estrellas",
       "thumbnail": "https://b.otcdn.com/imglib/hotelfotos/8/168/hotel-amerian-merit-mar-del-plata-019.jpg",
       "location" : {
-        "long" : 21211,
-        "lat" : 21211
+        "lat" : 25.0112183,
+        "lng" : 121.52067570000001
       }
     }
   ]
