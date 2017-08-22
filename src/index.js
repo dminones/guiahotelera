@@ -6,15 +6,8 @@ import App from './App';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-const getLocationHomepage = function(href) {
-    var l = document.createElement("a");
-    l.href = href;
-    return l;
-};
-const l = getLocationHomepage(process.env.PUBLIC_URL);
-
 const AppClient = () => (
-  <Router basename={l.pathname}>
+  <Router basename="/guiahotelera">
     <App />
   </Router>
 );
