@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import slugify from '../utils/Slugify'
-import {Header, SingleItemMap } from './'
-import scrollToComponent from 'react-scroll-to-component';
+import config from '../config'
+import {Header, SingleItemMap } from '../components'
+import scrollToComponent from 'react-scroll-to-component'
 
 function PhoneDetail({phone}) {
   if(phone == null){ return null }
@@ -100,10 +101,10 @@ export default class SingleItem extends Component {
 
   getHotel() {
     let self = this
-    fetch(process.env.PUBLIC_URL+'/data/hotels.json')  
+    fetch(config.apiUrl+"/hotels")  
       .then(function(response) {
         response.json().then(function(json) {
-          var found = json.data.filter(function(item) { 
+          var found = json.filter(function(item) { 
             return slugify(item.name) === self.props.match.params.slug;
           });
          

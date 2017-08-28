@@ -1,0 +1,43 @@
+.Icon-link:hover {
+  	color:blue;
+}
+
+.Filtering-list-item {
+	margin-right: 10px;
+	font-size: 15px;
+	list-style: none
+}
+
+.Filtering-list-item a:hover{
+	color:blue;
+}
+
+/**
+*
+* Autosugest
+*
+**/
+
+.react-autosuggest__suggestions-list {
+	background-color:white;
+	list-style: none;
+	text-align: left;
+	padding-left: 0px;
+	margin-top: 10px;
+
+	
+    border-left:1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: none;
+    background: #fff;
+}
+
+.react-autosuggest__suggestion {
+	padding: 5px 10px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+	color: blue;
+	cursor: pointer;
+}

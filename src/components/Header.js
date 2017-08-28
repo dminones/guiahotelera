@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import Gallery from 'react-images';
 
-function TitleOverlay ({ title }) {
-
-  if (title == null) {
-    return null
-  }
+function Overlay (props) {
 
   const contentStyle = {
     position: 'absolute',
@@ -23,25 +19,11 @@ function TitleOverlay ({ title }) {
     position: 'absolute'
   } 
 
-
-  const h1Style = {
-    color: 'rgb(255, 255, 255)',
-    letterSpacing: '0px',
-    fontWeight: '600',
-    transition: 'none',
-    lineHeight: '70px',
-    borderWidth: '0px',
-    margin: '125px auto 0 0',
-    padding: '0px',
-    fontSize: '42px',
-    display: 'inline-block'
-  }
-
   return (
       <div>
         <div style={ overlayStyle }></div>
         <div style={ contentStyle }>
-          <h1 style={ h1Style } >{ title }</h1>
+          {props.children}
         </div>
       </div>
   )
@@ -68,7 +50,7 @@ function MoreButton({ onClick }) {
 
   return(
     <div style={buttonContainerStyle} className="container">
-      <a style={ buttonStyle} onClick={onClick} className="button"> Ver Fotos</a>
+      <a style={ buttonStyle} onClick={ onClick } className="button"> Ver Fotos</a>
     </div>
   )    
 }
@@ -91,29 +73,27 @@ export default class Header extends Component {
   }
 
   openLightbox () {
-    console.log("Abrir Galeria")
+    if(!this.state.shouldShowGallery())
+      return
+
     this.setState({
       lightboxIsOpen: true
     })
   }
 
   closeLightbox () {
-    console.log("Cerrar Galeria")
     this.setState({
       lightboxIsOpen: false
     })
   }
 
   nextImage () {
-    console.log("nextImage Galeria")
     this.setState({
       currentImage: this.state.currentImage+1
     })
   }
-
   
   prevImage () {
-    console.log("nextImage Galeria")
     this.setState({
       currentImage: this.state.currentImage-1
     })
@@ -134,7 +114,6 @@ export default class Header extends Component {
     var headerStyle = {   margin:'0px auto',
                             backgroundColor:'transparent',
                             padding:'0px', 
-                            overflow: 'hidden',
                             position: 'relative',
                             backgroundImage: 'url('+this.props.src+')',
                             backgroundPosition: 'center',
@@ -142,14 +121,31 @@ export default class Header extends Component {
                             backgroundSize: 'cover', 
                             maxHeight: '100%'
     }
+
     headerStyle.backgroundAttachment = (defaults.headerFixed) ? 'fixed' : 'scroll'
     headerStyle.height = sizes[defaults.headerSize]
     headerStyle.cursor = this.state.shouldShowGallery() ? 'pointer' : 'inherit'
 
+      const h1Style = {
+        color: 'rgb(255, 255, 255)',
+        letterSpacing: '0px',
+        fontWeight: '600',
+        transition: 'none',
+        lineHeight: '70px',
+        borderWidth: '0px',
+        margin: '125px auto 0 0',
+        padding: '0px',
+        fontSize: '42px',
+        display: 'inline-block'
+      }
+
     return(
       <div>
         <div onClick={this.openLightbox} style={ headerStyle } >
-          <TitleOverlay title={this.props.title} />
+          <Overlay >
+            <h1 style={ h1Style } >{ this.props.title }</h1>
+            {this.props.children}
+          </Overlay>
           { this.state.shouldShowGallery() ? (<MoreButton onClick={this.openLightbox} />) : null }
         </div>
           {

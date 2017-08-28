@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Filtering } from './index'
 import { Link } from 'react-router-dom'
 import slugify from '../utils/Slugify'
+import config from '../config'
 import banner from '../images/ad_350x350.jpg'
 import '../css/icons.css';
-import './Listing.css';
+import './Components.css';
 
 function Sorting() {
   return(
@@ -24,8 +25,14 @@ function ResultListItem({ item }) {
           <div className="listing-item-content">
             <div className="listing-item-inner">
               <h3>{ item.name }</h3>
-              <span><i className="fa fa-map-marker" style={{fontSize:'20px', marginRight:'10px'}} ></i>{ item.address }
-              <br/><i className="im im-icon-Telephone" style={{fontSize:'20px', marginRight:'10px'}} ></i>{ item.phone }</span>
+              <span>
+                <i  className="fa fa-map-marker" 
+                    style={{fontSize:'20px', marginRight:'10px'}} ></i>
+                { item.address }<br/>
+                <i  className="im im-icon-Telephone" 
+                    style={{fontSize:'20px', marginRight:'10px'}} ></i>
+                { item.phone }
+              </span>
               {/*
                 <br/>
               <span>
@@ -50,7 +57,7 @@ function ResultList({ results, destination }) {
         <h3 className="margin-top-0 margin-bottom-30">Alojamientos en { destination.name } </h3>
       </div>
       {results.map((item) => (
-        <ResultListItem key={item.id} item={item} />
+        <ResultListItem key={item._id} item={item} />
       )) }
     </div>
   )
@@ -67,12 +74,11 @@ export default class Listing extends Component {
 
   updateHotels() {
     let self = this
-    fetch(process.env.PUBLIC_URL+'/data/hotels.json')  
+    fetch(config.apiUrl+'/hotels')  
       .then(function(response) {
         response.json().then(function(json) {
-          console.log(json)
           self.setState({
-            results : json.data
+            results : json
           })
         })
     })
@@ -83,7 +89,6 @@ export default class Listing extends Component {
   }
 
   render() {
-    console.log(this.props)
     return(
       <div className="container margin-top-30" >
         <div className="row">

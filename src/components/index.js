@@ -4,7 +4,17 @@ import Footer from './Footer.js'
 import Header from './Header.js'
 import Filtering from './Filtering.js'
 import Listing from './Listing.js'
-import SingleItem from './SingleItem.js'
 import SingleItemMap from './SingleItemMap.js'
+import Destinations from './Destinations.js'
+import Search from './Search.js'
 
-export { NavBar, TitleBar, Footer, Header, Filtering, Listing, SingleItem, SingleItemMap}
+export { 	NavBar, 
+			TitleBar, 
+			Footer, 
+			Header, 
+			Filtering, 
+			Listing, 
+			SingleItemMap,
+			Destinations,
+			Search
+		}

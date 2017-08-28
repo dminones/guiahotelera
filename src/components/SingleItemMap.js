@@ -32,7 +32,6 @@ export default class SingleItemMap extends Component {
 	}
 
 	render() {
-		console.log(this.props.item.location.lat)
 		return(
 			<GettingStartedGoogleMap
 	            containerElement={
