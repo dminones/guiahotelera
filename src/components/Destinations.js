@@ -29,7 +29,12 @@ export default class Destinations extends Component {
 
 	updateDestinations() {
 		let self = this
-		fetch(config.apiUrl+'/destinations')  
+		var url = new URL(config.apiUrl+'/destination')
+		if (self.props.destination) {
+			var params = {parent:self.props.destination.id}
+			Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+		}
+		fetch(url)
 		  .then(function(response) {
 		    response.json().then(function(json) {
 		      self.setState({

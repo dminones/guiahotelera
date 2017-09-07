@@ -7,14 +7,14 @@ import scrollToComponent from 'react-scroll-to-component'
 function PhoneDetail({phone}) {
   if(phone == null){ return null }
 
-  return(<li><i className="sl sl-icon-phone"></i> { phone }</li>)
+  return(<li key="phone"><i className="sl sl-icon-phone"></i> { phone }</li>)
 }
 
 function WebDetail({web}) {
   if(web == null){ return null }
 
   return(
-    <li>
+    <li key="web">
       <i className="sl sl-icon-globe"></i> 
       <a href={ web } target="_blank">{ web }</a>
     </li>
@@ -25,7 +25,7 @@ function EmailDetail({email}) {
   if(email == null){ return null }
 
   return(
-    <li>
+    <li key="email">
       <i className="fa fa-envelope-o"></i> 
       <a href={ 'mailto:'+email }>{ email }</a>
     </li>
@@ -49,6 +49,7 @@ function Contact({item}) {
     </div>
   )
 }
+
 
 function Content({item}) {
   var content = {}
@@ -90,6 +91,32 @@ function Content({item}) {
   )
 }
 
+class Booking extends Component {
+
+  render(){
+
+    return(
+        <div>
+          <ins  className="bookingaff" 
+                data-aid="1341342" 
+                data-target_aid="1340103" 
+                data-prod="rw" 
+                data-width="0" 
+                data-height="0" 
+                data-lang="en-US" 
+                data-show_rw_logo="1" 
+                data-show_rw_badge="1" 
+                data-show_rw_text="1" 
+                data-show_rw_border="1" 
+                data-right_align_rw="1" 
+                data-hid="26210">
+            <a href="//www.booking.com?aid=1340103">Booking.com</a>
+          </ins>
+        </div>
+    )
+  }
+}
+
 export default class SingleItem extends Component {
 
   constructor() {
@@ -101,7 +128,7 @@ export default class SingleItem extends Component {
 
   getHotel() {
     let self = this
-    fetch(config.apiUrl+"/hotels")  
+    fetch(config.apiUrl+"/item")  
       .then(function(response) {
         response.json().then(function(json) {
           var found = json.filter(function(item) { 
@@ -122,29 +149,10 @@ export default class SingleItem extends Component {
   }
 
   Sidebar({item}) {
-    /*
-    var __html = `
-    <ins class="bookingaff" data-aid="1341342" data-target_aid="1340103" data-prod="rw" data-width="0" data-height="0" data-lang="en-US" data-show_rw_logo="1" data-show_rw_badge="1" data-show_rw_text="1" data-show_rw_border="1" data-right_align_rw="1" data-hid="26210">
-    <!-- Anything inside will go away once widget is loaded. -->
-    <a href="//www.booking.com?aid=1340103">Booking.com</a>
-      </ins>
-      <script type="text/javascript">
-          (function(d, sc, u) {
-            var s = d.createElement(sc), p = d.getElementsByTagName(sc)[0];
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = u + '?v=' + (+new Date());
-            p.parentNode.insertBefore(s,p);
-            })(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');
-      </script>`
-    { __html: __html }; */
-
-    var template = null;
-
     return(
       <div>
         <Contact item={item} />
-        <div dangerouslySetInnerHTML={ template } />
+        <Booking />
       </div>
     )
   }
@@ -152,7 +160,7 @@ export default class SingleItem extends Component {
   render() {
     return(
       <div>
-        { (this.state.hotel !== null) ? (<Header src={ this.state.hotel.thumbnail } headerSize="Big" gallery={this.state.hotel.gallery} />) : null }
+        { (this.state.hotel !== null) && ( this.state.hotel.thumbnail ) ? (<Header src={ this.state.hotel.thumbnail } headerSize="Big" gallery={this.state.hotel.gallery} />) : null }
         {/*<TitleBar title={ 'Hotel '+this.state.hotel.name } subtitle={this.state.hotel.name} />*/}
         <div className="container">
           <div className="row sticky-wrapper">

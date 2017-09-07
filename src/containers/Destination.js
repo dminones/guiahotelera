@@ -4,16 +4,16 @@ import {Header, Listing } from '../components'
 
 export default class Destination extends Component {
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
-		  destination: null, 
+		  destination: null,
 		}
 	}
 
 	getDestination() {
 		let self = this
-		fetch(config.apiUrl+'/destinations')  
+		fetch(config.apiUrl+'/destination')  
 		  .then(function(response) {
 		    response.json().then(function(json) {
 		      	var found = json.filter(function(item) { 
@@ -21,8 +21,9 @@ export default class Destination extends Component {
 		      	});
 
 		      	if (found.length > 0) {
+		      		var destination = found[0]
 		        	self.setState({
-		          		destination : found[0]
+		          		destination : destination,
 		        	})
 		      	}
 		    })
@@ -42,7 +43,7 @@ export default class Destination extends Component {
 		return(
 			<div>
 			  <Header src={ destination.image } title={ destination.name } headerFixed={true} />
-			  <Listing destination={destination} />
+			  <Listing destination={destination} />
 			</div>
 		)
 	}

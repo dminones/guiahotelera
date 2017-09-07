@@ -12,6 +12,29 @@
 	color:blue;
 }
 
+
+.row.with-forms select {
+	text-indent: 15px!important;
+}
+
+.listing-item-container.list-layout.item-simple:hover {
+	transform: none;
+	-webkit-transform: none;
+}
+
+.listing-item-content-simple h3 {
+    font-size: 20px;
+    bottom: -1px;
+    position: relative;
+    font-weight: 500;
+    margin: 0;
+    line-height: 31px;
+}
+
+.listing-item-inner-simple {
+	padding: 10px 35px 10px 35px;
+}
+
 /**
 *
 * Autosugest

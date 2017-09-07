@@ -9,7 +9,7 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
     onClick={props.onMapClick}
   >
   	{props.markers.map(marker => (
-      <Marker
+      <Marker key={ marker.key }
         {...marker}
         onRightClick={() => props.onMarkerRightClick(marker)}
       />
