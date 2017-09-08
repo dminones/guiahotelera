@@ -13,7 +13,7 @@ const getSuggestions = function(value, callback) {
 	const inputLength = inputValue.length;
 	
 	let self = this
-	fetch(config.apiUrl+'/destinations')  
+	fetch(config.apiUrl+'/destination')  
 	  .then(function(response) {
 	    response.json().then(function(json) {
 	      	let filtered = json.filter(item =>

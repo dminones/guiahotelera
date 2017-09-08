@@ -8,7 +8,7 @@ function SearchContainer() {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 col-md-push-2">
-						<h1 style={{  color:'white' }} >Encontra Hoteles en Argentina</h1>
+						<h1 style={{  color:'white' }} >Encontra Hoteles en Bolivia</h1>
 						<h4 style={{  color:'white' }} >Expolora los mejores destinos, hoteles y más</h4>
 
 						<Search />

@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 import { getMainMenu } from '../data/'
 
-import logo from '../images/logo-argentina.jpg';
+import logo from '../images/logo-bolivia.jpg';
 
 function Menu ({ menu }) {
   if(menu instanceof Array) {

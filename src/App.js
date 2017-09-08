@@ -8,7 +8,7 @@ import { NavBar, TitleBar, Footer, Header } from './components/'
 
 import './css/icons.css';
 import './css/style.css';
-import './css/colors/blue.css';
+import './css/colors/green.css';
 
 import './App.css';
 import hostelHeader from './images/IL-hi-chicago-gallery-02.jpg';

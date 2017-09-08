@@ -16,7 +16,7 @@ class CategorySelect extends Component {
 
   updateCategories() {
     let self = this
-    var url = new URL(config.apiUrl+'/item-category')
+    var url = new URL(config.apiUrl+'/item-accommodationtype')
     
     var filter = {}
     console.log(this.props)

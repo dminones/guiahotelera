@@ -65,7 +65,7 @@ export default class Destinations extends Component {
 		              	</div>
 		            )) }
 
-		            <a className="button border" >Más Destinos</a>
+		            {/*<a className="button border" >Más Destinos</a>*/}
 				</div>
 			</div>
 		)
