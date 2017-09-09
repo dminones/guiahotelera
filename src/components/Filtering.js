@@ -46,9 +46,9 @@ class CategorySelect extends Component {
   handleChange(ev) {
     const value = (ev.target.value === 'no-value') ? undefined : ev.target.value
     console.log(value)
-    if(value !== this.state.category) {
+    if(value !== this.state._accommodationType) {
       this.setState({
-        category: value
+        _accommodationType: value
       })
       this.props.onChange(value)
     }
@@ -101,7 +101,7 @@ export default class Filtering extends Component {
 
   handleCategoryChange(value) {
     this.setState({
-      _category: value
+      _accommodationType: value
     });
   }
 
