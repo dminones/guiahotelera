@@ -7,6 +7,7 @@ import Listing from './Listing.js'
 import ResultListItem from './ResultListItem.js'
 import SingleItemMap from './SingleItemMap.js'
 import Destinations from './Destinations.js'
+import Items from './Items.js'
 import Search from './Search.js'
 
 export { 	NavBar, 
@@ -18,5 +19,6 @@ export { 	NavBar,
 			ResultListItem,
 			SingleItemMap,
 			Destinations,
-			Search
+			Search,
+			Items
 		}

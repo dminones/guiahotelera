@@ -126,6 +126,10 @@ export default class SingleItem extends Component {
     }
   }
 
+  componentDidMount() {
+    this.getHotel = this.getHotel.bind(this)
+  }
+
   getHotel() {
     let self = this
     fetch(config.apiUrl+"/item")  
@@ -136,6 +140,7 @@ export default class SingleItem extends Component {
           });
          
           if (found.length > 0) {
+            console.log(found[0])
             self.setState({
               hotel : found[0]
             })

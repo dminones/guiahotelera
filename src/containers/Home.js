@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Destinations, Search } from '../components'
+import { Header, Destinations, Search, Items } from '../components'
 import { getRandomImage } from '../data';
 
 
@@ -24,7 +24,8 @@ export default function Home () {
 			<Header src={ getRandomImage() } headerSize="Big" headerFixed={false} >
 				<SearchContainer />
 			</Header>
-			<Destinations />
+			<Destinations page={6} />
+			<Items />
 		</div>
 	)
 }

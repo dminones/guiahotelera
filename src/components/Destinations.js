@@ -18,12 +18,14 @@ function ImageBox({destination}) {
 	)
 }
 
+
 export default class Destinations extends Component {
 
-	constructor() {
-	    super()
+	constructor(props) {
+	    super(props)
 	    this.state = {
-	      results : []
+	      results : [],
+	      page: props.page
 	    }
 	 }
 
@@ -46,6 +48,26 @@ export default class Destinations extends Component {
 
 	componentDidMount() {
 		this.updateDestinations()
+		this.getMore = this.getMore.bind(this)
+	}
+
+	getMore() {
+		this.setState({
+			page: this.state.page + this.props.page
+		})
+	}
+
+
+	getMoreButton() {
+		if(this.state.results.length <= this.state.results.slice(0, this.state.page).length) {
+			return null
+		}
+
+		return (
+			<div className="col-md-12">
+            	<a className="button border" onClick={this.getMore} >Más Destinos</a>
+            </div>
+		)
 	}
 
 	render() {
@@ -59,13 +81,14 @@ export default class Destinations extends Component {
 						</h3>
 					</div>
 					
-					{this.state.results.slice(0, 6).map((item, index) => (
+					{this.state.results.slice(0, this.state.page).map((item, index) => (
 						<div key={item._id} className="col-md-4" >
 		              		<ImageBox destination={item}/>
 		              	</div>
 		            )) }
 
-		            {/*<a className="button border" >Más Destinos</a>*/}
+					{ this.getMoreButton() }
+		           
 				</div>
 			</div>
 		)
