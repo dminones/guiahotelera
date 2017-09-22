@@ -9,6 +9,7 @@ import SingleItemMap from './SingleItemMap.js'
 import Destinations from './Destinations.js'
 import Items from './Items.js'
 import Search from './Search.js'
+import Book from './Book.js'
 
 export { 	NavBar, 
 			TitleBar, 
@@ -20,5 +21,6 @@ export { 	NavBar,
 			SingleItemMap,
 			Destinations,
 			Search,
-			Items
+			Items, 
+			Book
 		}
