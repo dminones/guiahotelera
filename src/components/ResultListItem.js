@@ -34,7 +34,8 @@ function ResultListItemContactData({item}) {
         <div>
           <i  className="fa fa-map-marker" 
               style={{fontSize:'20px', marginRight:'10px'}} ></i>
-                  { item.address }<br/>
+                  { item.address }
+          <br/>
           </div>
       }
       {item.phone &&
@@ -57,7 +58,10 @@ function ResultListItemSimple({item}) {
               <h3 style={{float:'left', marginRight:'10px'}}>{ item.name }</h3>
               <ResultListItemSimpleCategory accommodationType={ item._accommodationType } />
               <div style={{ clear:'both'}} ></div>
-              <ResultListItemContactData item={item} /> 
+              <span>
+                <ResultListItemAddress address={item.address} />
+                <ResultListItemPhone phone={item.phone} />
+              </span>
             </div>
           </div>
       </div>
@@ -71,11 +75,11 @@ function ResultListItemAddress({address}) {
   }
 
   return (
-    <span>
-      <i  className="fa fa-map-marker" 
+    <div>
+      <i  className="sl sl-icon-location" 
           style={{fontSize:'20px', marginRight:'10px'}} ></i>
           { address }<br/>
-    </span>
+    </div>
   )
 }
 
@@ -86,11 +90,11 @@ function ResultListItemPhone({phone}) {
   }
 
   return (
-    <span>
-      <i  className="im im-icon-Telephone" 
+    <div>
+      <i  className="sl sl-icon-phone" 
         style={{fontSize:'20px', marginRight:'10px'}} ></i>
         { phone }
-    </span>
+    </div>
   )
 }
 

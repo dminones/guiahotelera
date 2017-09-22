@@ -1,5 +1,6 @@
 import React from 'react';
 
+/*
 function BreadCrumbs () {
   return(
     <nav id="breadcrumbs">
@@ -10,6 +11,7 @@ function BreadCrumbs () {
     </nav>
   )
 }
+*/
 
 export default function TitleBar ({ title, subtitle}) {
   return (

@@ -18,9 +18,6 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
 ));
 
 export default class SingleItemMap extends Component {
-	constructor({item}) {
-		super()
-	}
 
 	handleMapLoad = this.handleMapLoad.bind(this);
 
@@ -32,6 +29,8 @@ export default class SingleItemMap extends Component {
 	}
 
 	render() {
+		let location = this.props.item.location.split(',')
+		let position = { lat: Number(location[0]), lng: Number(location[1]) }
 		return(
 			<GettingStartedGoogleMap
 	            containerElement={
@@ -43,8 +42,8 @@ export default class SingleItemMap extends Component {
 	            onMapLoad={this.handleMapLoad}
 	            markers={[
 					{
-						position: this.props.item.location,
-						key: this.props.item.id,
+						position: position,
+						key: this.props.item._id,
 					}
 				]}
 	            defaultCenter={this.props.item.location}

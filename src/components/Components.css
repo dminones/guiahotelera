@@ -1,5 +1,5 @@
 .Icon-link:hover {
-  	color:blue;
+  	color:#00a948;
 }
 
 .Filtering-list-item {
@@ -9,7 +9,7 @@
 }
 
 .Filtering-list-item a:hover{
-	color:blue;
+	color:#00a948;
 }
 
 
@@ -61,6 +61,6 @@
 }
 
 .react-autosuggest__suggestion--highlighted {
-	color: blue;
+	color: #00a948;
 	cursor: pointer;
 }

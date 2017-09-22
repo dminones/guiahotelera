@@ -118,7 +118,7 @@ export default class Filtering extends Component {
   }
 
   handleKeyPress(event) {
-    if(event.key == 'Enter'){
+    if(event.key === 'Enter'){
       this.onSubmit()
     }
   }
