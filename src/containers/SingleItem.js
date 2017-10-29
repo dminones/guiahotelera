@@ -8,7 +8,7 @@ import scrollToComponent from 'react-scroll-to-component'
 function PhoneDetail({phone}) {
   if(phone == null){ return null }
 
-  return(<li key="phone"><i className="sl sl-icon-phone"></i> { phone }</li>)
+  return(<li key="phone"><i className="sl sl-icon-phone"></i><a href={ 'tel:'+phone } target="_blank"> { phone }</a></li>)
 }
 
 function WebDetail({web}) {
