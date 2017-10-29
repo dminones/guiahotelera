@@ -58,6 +58,30 @@ function AccommodationType({accommodationType}) {
   )
 }
 
+function FacebookDetail({facebook}) {
+  if(facebook == null){ return null }
+
+  return( <li>
+            <a href={facebook} className="facebook-profile">
+              <i className="fa fa-facebook-square"></i>
+              Facebook
+            </a>
+          </li>)
+}
+
+
+function TwitterDetail({twitter}) {
+  if(twitter == null){ return null }
+
+  return( <li>
+            <a href={twitter} className="twitter-profile"> 
+              <i className="fa fa-facebook-square"></i>
+              Twitter
+            </a>
+          </li>)
+}
+
+
 function Content({item}) {
   var content = {}
   const linkStyle = {cursor:'pointer'}
@@ -107,8 +131,8 @@ function Content({item}) {
           <EmailDetail email={item.email} />   
         </ul>
         <ul className="listing-details-sidebar social-profiles col-md-4">
-          <li><a href="listings-single-page.html#" className="facebook-profile"><i className="fa fa-facebook-square"></i> Facebook</a></li>
-          <li><a href="listings-single-page.html#" className="twitter-profile"><i className="fa fa-twitter"></i> Twitter</a></li>
+          <FacebookDetail facebook={item.facebook} />
+          <TwitterDetail twitter={item.twitter} />
         </ul>
       </div>
     </div>
