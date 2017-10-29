@@ -62,7 +62,7 @@ function FacebookDetail({facebook}) {
   if(facebook == null){ return null }
 
   return( <li>
-            <a href={facebook} className="facebook-profile">
+            <a href={facebook} target="_blank" className="facebook-profile">
               <i className="fa fa-facebook-square"></i>
               Facebook
             </a>
@@ -74,7 +74,7 @@ function TwitterDetail({twitter}) {
   if(twitter == null){ return null }
 
   return( <li>
-            <a href={twitter} className="twitter-profile"> 
+            <a href={twitter} target="_blank" className="twitter-profile"> 
               <i className="fa fa-facebook-square"></i>
               Twitter
             </a>
