@@ -201,7 +201,6 @@ export default class SingleItem extends Component {
     return(
       <div>
         <Book item={item} />
-        {{ /* <Booking /> */ }}
       </div>
     )
   }
