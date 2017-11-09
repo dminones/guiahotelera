@@ -4,7 +4,7 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={10}
+    defaultZoom={15}
     defaultCenter={props.markers[0].position}
     onClick={props.onMapClick}
   >

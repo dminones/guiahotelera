@@ -24,13 +24,13 @@ function WebDetail({web}) {
   )
 }
 
-function EmailDetail({email}) {
+function EmailDetail({email, onClick}) {
   if(email == null){ return null }
 
   return(
     <li key="email">
       <i className="fa fa-envelope-o"></i> 
-      <a href={ 'mailto:'+email }>{ email }</a>
+      <a  style={{cursor:'pointer' }}  onClick={ onClick } >{ email }</a>
     </li>
   )
 }
@@ -128,7 +128,8 @@ function Content({item}) {
           <AddressDetail address={item.address} />
           <PhoneDetail phone={item.phone} />
           <WebDetail web={item.web} />
-          <EmailDetail email={item.email} />   
+          <EmailDetail  email={item.email} 
+                        onClick={() => scrollToComponent(content.Description) } />   
         </ul>
         <ul className="listing-details-sidebar social-profiles col-md-4">
           <FacebookDetail facebook={item.facebook} />

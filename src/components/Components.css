@@ -35,6 +35,21 @@
 	padding: 10px 35px 10px 35px;
 }
 
+.listing-item-container.list-layout .listing-small{
+	height: 120px!important;
+}
+
+.listing-item-container.list-layout .listing-item-image-small{
+    min-height: initial!important;
+    flex: 1 1!important;
+}
+
+@media (max-width: 991px) {		
+	.listing-item-image {
+		height: 250px!important;
+	}
+}
+
 /**
 *
 * Autosugest

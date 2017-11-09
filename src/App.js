@@ -3,6 +3,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { SingleItem, NoMatch, Destination, Home } from './containers/'
 import { NavBar, TitleBar, Footer, Header } from './components/'
 
@@ -23,15 +24,38 @@ function Hostels({match}) {
 }
 
 function DestinationRouter({match}) {
+  console.log ((props) => PageShell(Destination)({ 
+                                                  ...props, 
+                                                  slug:match.params.slug
+                                            }))
   return(
     <Switch>
-      <Route exact path={match.url} render={() => (
+      {/*<Route exact path={match.url} render={() => PageShell(
         <Destination slug={match.params.slug} />
-      )}/>   
-      <Route component={NoMatch}/>
+      )}/>*/}
+      <Route exact path={match.url} render={(props) => PageShell(Destination)({ 
+                                                  ...props, 
+                                                  slug:match.params.slug
+                                            })}/>
+      <Route component={PageShell(NoMatch)}/>
     </Switch>
   )
 }
+
+const PageShell = Page => {
+  return props =>
+    <div className="page">
+      <ReactCSSTransitionGroup
+        transitionAppear={true}
+        transitionAppearTimeout={600}
+        transitionEnterTimeout={600}
+        transitionLeaveTimeout={200}
+        transitionName={ 'SlideIn'}
+      >
+        <Page {...props} />
+      </ReactCSSTransitionGroup>
+    </div>;
+};
 
 class App extends Component {
   render() {
@@ -39,11 +63,11 @@ class App extends Component {
       <div className="App"> 
         <NavBar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/hostel" component={Hostels} />
-          <Route path={`/hotel/:slug`} component={SingleItem}/>
-          <Route path="/d/:slug" component={DestinationRouter} />
-          <Route component={NoMatch}/>
+          <Route exact path="/" component={PageShell(Home)} />
+          <Route exact path="/hostel" component={PageShell(Hostels)} />
+          <Route path={`/hotel/:slug`} component={PageShell(SingleItem)}/>
+          <Route path="/d/:slug" component={PageShell(DestinationRouter)} />
+          <Route component={PageShell(NoMatch)}/>
         </Switch>
         <Footer />
         <div id="backtotop"><a href="listings-list-with-sidebar.html#"></a></div>

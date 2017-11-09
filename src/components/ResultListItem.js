@@ -10,9 +10,8 @@ function ResultListItemCategory({accommodationType}) {
 }
 
 function ResultListImage({item}) {
-  console.log(item)
   return(
-    <div className="listing-item-image">
+    <div className="listing-item-image" >
       <img src={ item.thumbnail } alt={ item.name } />
       <ResultListItemCategory accommodationType={ item._accommodationType } />
     </div>
@@ -128,10 +127,41 @@ function ResultListItemBig({item}) {
   )
 }
 
+function ResultListItemSimpleLinked({item}) {
+  return(
+    <div className="col-lg-12 col-md-12">
+      <div className="listing-item-container list-layout">
+        <Link to={ '/hotel/'+slugify(item.name) } className="listing-item listing-small">         
+          <div className="listing-item-image listing-item-image-small" >
+            <img src={ item.logoImage ? item.logoImage : item.thumbnail } alt={ item.name } />
+          </div>
+          <div className="listing-item-content">
+            <div className="listing-item-inner">
+              <h3 style={{float:'left', marginRight:'10px'}}>{ item.name }</h3>
+              <ResultListItemSimpleCategory accommodationType={ item._accommodationType } />
+              <div style={{ clear:'both'}} ></div>
+              <span>
+                <ResultListItemAddress address={item.address} />
+                <ResultListItemPhone phone={item.phone} />
+              </span>
+            </div>
+          </div>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+
 export default function ResultListItem({ item }) {
-  if(item.publicationType) {
-    return (<ResultListItemBig item={item} />)
-  } else {
-    return (<ResultListItemSimple item={item} />)
+  switch(item.publicationType) {
+    case 'Premium':
+      return (<ResultListItemBig item={item} />)
+    case 'Basica':
+      return (<ResultListItemBig item={item} />)
+    case 'Figuracion':
+      return (<ResultListItemSimpleLinked item={item} />)
+    default: 
+      return (<ResultListItemSimple item={item} />)
   }
 }
