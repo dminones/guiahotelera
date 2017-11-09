@@ -82,8 +82,8 @@ function TwitterDetail({twitter}) {
 }
 
 
-function Content({item}) {
-  var content = {}
+function Content({item, content}) {
+  console.log("content", content)
   const linkStyle = {cursor:'pointer'}
 
   if(item == null ){
@@ -129,7 +129,7 @@ function Content({item}) {
           <PhoneDetail phone={item.phone} />
           <WebDetail web={item.web} />
           <EmailDetail  email={item.email} 
-                        onClick={() => scrollToComponent(content.Description) } />   
+                        onClick={() => scrollToComponent(content.Book) } />   
         </ul>
         <ul className="listing-details-sidebar social-profiles col-md-4">
           <FacebookDetail facebook={item.facebook} />
@@ -207,6 +207,8 @@ export default class SingleItem extends Component {
   }
 
   render() {
+    var content = {}
+
     return(
       <div>
         { (this.state.hotel !== null) && ( this.state.hotel.thumbnail ) ? (<Header src={ this.state.hotel.thumbnail } headerSize="Big" gallery={this.state.hotel.gallery} />) : null }
@@ -214,10 +216,10 @@ export default class SingleItem extends Component {
         <div className="container">
           <div className="row sticky-wrapper">
             <div className="col-lg-8 col-md-8 padding-right-30">
-                <Content item={this.state.hotel} />              
+                <Content item={this.state.hotel} content={content} />              
             </div>
-            <div className="col-lg-4 col-md-4 margin-top-75 sticky">
-                { (this.state.hotel !== null) ? (<this.Sidebar item={this.state.hotel} />) : null }
+            <div ref={(section) => { content.Book = section; }} className="col-lg-4 col-md-4 margin-top-75 sticky">
+                { (this.state.hotel !== null) ? (<this.Sidebar  item={this.state.hotel} />) : null }
             </div>
           </div>
         </div>
