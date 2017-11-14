@@ -30,11 +30,13 @@ export default class Listing extends Component {
     super(props)
     this.state = {
       results : [],
+      banners: [],
       filter: { _destination: this.props.destination._id }
     }
 
     this.onChangeFilter = this.onChangeFilter.bind(this)
     this.updateHotels = this.updateHotels.bind(this)
+    this.getBanners = this.getBanners.bind(this)
   }
 
   onChangeFilter(filter) {
@@ -43,6 +45,19 @@ export default class Listing extends Component {
     })
     
     this.updateHotels(filter)
+  }
+  
+  getBanners() {
+    let self = this
+
+    fetch(config.apiUrl+'/banner?_destination='+this.props.destination._id)  
+      .then(function(response) {
+        response.json().then(function(json) {
+            self.setState({
+              banners: json
+            })
+        })
+    })
   }
 
   updateHotels(newFilter) {
@@ -71,6 +86,7 @@ export default class Listing extends Component {
 
   componentDidMount() {
     this.updateHotels()
+    this.getBanners()
   }
 
   render() {
@@ -83,14 +99,13 @@ export default class Listing extends Component {
           </div>
           <div className="col-lg-3 col-md-4">
             <Filtering filter={this.state.filter} onChange={ this.onChangeFilter }/>
-            
-            {/*
-              Banners de publicidad
-            } 
-            {[1,2,3].map((item) => (
-              <img key={item} src={ banner } style={ { marginBottom:'10px'} } /> 
-            )) }
-            {*/}
+            {
+              this.state.banners.map((item) => (
+                <a href={ item.link } target={ item.target } >
+                  <img key={item.id} src={ item.src } style={ { marginBottom:'10px'} } /> 
+                </a>
+              ))
+            }
           </div>
         </div>
       </div>

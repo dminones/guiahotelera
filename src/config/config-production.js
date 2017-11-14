@@ -2,7 +2,8 @@ const config = {
 	apiUrl : "https://hotelguia.herokuapp.com",
 	title: "Guia Hotelera Bolivia",
 	logo: "logo-bolivia",
-	color: "green"
+	color: "green",
+	basename: "",
 }
 
 export { config }

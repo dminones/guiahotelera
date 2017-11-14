@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 config.set(configuration);
 
 const AppClient = () => (
-  <Router basename="/guiahotelera" >
+  <Router basename={'/'+ (config.basename) ? config.basename : '' } >
     <App />
   </Router>
 );

@@ -16,15 +16,14 @@ function PhoneDetail({phone}) {
 
 function WebDetail({web}) {
   if(web == null){ return null }
-
+  let webUrl = web.replace(/(^\w+:|^)\/\//, '');
   return(
     <li key="web">
       <i className="sl sl-icon-globe"></i> 
-      <a href={ 'http://'+web } target="_blank">{ web }</a>
+      <a href={ 'http://'+webUrl } target="_blank">{ webUrl }</a>
     </li>
   )
 }
-
 
 function BookingDetail({booking}) {
   if(booking == null){ return null }
