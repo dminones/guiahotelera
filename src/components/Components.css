@@ -2,6 +2,13 @@
   	color:#00a948;
 }
 
+.icon-booking {
+	background-image: url('../images/apple-touch-icon.png');
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+}
+
 .Filtering-list-item {
 	margin-right: 10px;
 	font-size: 15px;
@@ -35,8 +42,9 @@
 	padding: 10px 35px 10px 35px;
 }
 
-.listing-item-container.list-layout .listing-small{
-	height: 120px!important;
+
+.listing-item-container.list-layout .listing-small img {
+	object-fit: contain;
 }
 
 .listing-item-container.list-layout .listing-item-image-small{
@@ -48,6 +56,21 @@
 	.listing-item-image {
 		height: 250px!important;
 	}
+
+	.listing-item-image-small {
+		height: 120px!important;	
+	}
+}
+
+@media (min-width: 991px) {		
+	.listing-item-container.list-layout .listing-small {
+		height: 120px!important;
+	}
+}
+
+
+.listing-item-container.list-layout .listing-item-inner {
+	padding-right: 35px!important;
 }
 
 /**

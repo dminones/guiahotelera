@@ -49,9 +49,11 @@ export default class NavBar extends Component {
 		              <Link to="/"><img src={ logo } alt="" /></Link>
 		            </div>
 
-		            <div className="menu-responsive">
-		              <i className="fa fa-reorder menu-trigger"></i>
-		            </div>
+              {/* 
+                <div className="menu-responsive">
+                  <i className="fa fa-reorder menu-trigger"></i>
+                </div>
+              */}
 
 		            <nav id="navigation" className="style-1">
 		              <Menu menu={ menu.left } />

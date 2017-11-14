@@ -4,6 +4,7 @@ import slugify from '../utils/Slugify'
 import config from '../config'
 import {Header, SingleItemMap, Book } from '../components'
 import scrollToComponent from 'react-scroll-to-component'
+import '../components/Components.css';
 
 function PhoneDetail({phone}) {
   if(phone == null){ return null }
@@ -19,10 +20,24 @@ function WebDetail({web}) {
   return(
     <li key="web">
       <i className="sl sl-icon-globe"></i> 
-      <a href={ web } target="_blank">{ web }</a>
+      <a href={ 'http://'+web } target="_blank">{ web }</a>
     </li>
   )
 }
+
+
+function BookingDetail({booking}) {
+  if(booking == null){ return null }
+
+  return(
+    <li key="booking">
+      <a href={ booking }  className="facebook-profile" target="_blank">
+        <i className="icon-booking"></i> Reservar en Booking.com
+      </a>
+    </li>
+  )
+}
+
 
 function EmailDetail({email, onClick}) {
   if(email == null){ return null }
@@ -75,7 +90,7 @@ function TwitterDetail({twitter}) {
 
   return( <li>
             <a href={twitter} target="_blank" className="twitter-profile"> 
-              <i className="fa fa-facebook-square"></i>
+              <i className="fa fa-twitter-square"></i>
               Twitter
             </a>
           </li>)
@@ -134,6 +149,7 @@ function Content({item, content}) {
         <ul className="listing-details-sidebar social-profiles col-md-4">
           <FacebookDetail facebook={item.facebook} />
           <TwitterDetail twitter={item.twitter} />
+          <BookingDetail booking={item.booking} />
         </ul>
       </div>
     </div>

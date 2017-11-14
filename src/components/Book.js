@@ -4,9 +4,11 @@ import config from '../config'
 
 export default class Book extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    console.log(props)
+    super(props)
     this.state = {
+      to: props.item.email,
       sending: false,
       errors : []
     }
@@ -123,7 +125,7 @@ export default class Book extends Component {
     let errorStyle = { border: 'red 1px solid'} 
     return(
       <div className="boxed-widget">
-        <h3>Reservar</h3>
+        <h3>Constultas y Reservas a {this.props.item.name}</h3>
 
         <div className="row with-forms">
           <div className="col-md-12">

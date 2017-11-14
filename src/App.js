@@ -64,7 +64,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={PageShell(Home)} />
-          <Route exact path="/hostel" component={PageShell(Hostels)} />
+          {/*<Route exact path="/hostel" component={PageShell(Hostels)} />*/}
           <Route path={`/hotel/:slug`} component={PageShell(SingleItem)}/>
           <Route path="/d/:slug" component={PageShell(DestinationRouter)} />
           <Route component={PageShell(NoMatch)}/>
