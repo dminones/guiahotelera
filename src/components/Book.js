@@ -125,7 +125,7 @@ export default class Book extends Component {
     let errorStyle = { border: 'red 1px solid'} 
     return(
       <div className="boxed-widget">
-        <h3>Constultas y Reservas a {this.props.item.name}</h3>
+        <h3>Consultas y Reservas a {this.props.item.name}</h3>
 
         <div className="row with-forms">
           <div className="col-md-12">

@@ -10,6 +10,7 @@ import Destinations from './Destinations.js'
 import Items from './Items.js'
 import Search from './Search.js'
 import Book from './Book.js'
+import Banners from './Banners.js'
 
 export { 	NavBar, 
 			TitleBar, 
@@ -22,5 +23,6 @@ export { 	NavBar,
 			Destinations,
 			Search,
 			Items, 
-			Book
+			Book,
+			Banners
 		}

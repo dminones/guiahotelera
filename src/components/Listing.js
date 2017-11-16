@@ -102,7 +102,7 @@ export default class Listing extends Component {
             {
               this.state.banners.map((item) => (
                 <a href={ item.link } target={ item.target } >
-                  <img key={item.id} src={ item.src } style={ { marginBottom:'10px'} } /> 
+                  <img key={item.id} src={ item.src } style={ { marginBottom:'10px', width:'100%'} } /> 
                 </a>
               ))
             }

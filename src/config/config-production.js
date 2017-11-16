@@ -3,7 +3,7 @@ const config = {
 	title: "Guia Hotelera Bolivia",
 	logo: "logo-bolivia",
 	color: "green",
-	basename: "",
+	basename: "/",
 }
 
 export { config }

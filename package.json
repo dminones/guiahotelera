@@ -1,6 +1,5 @@
 {
   "name": "guiahotelera",
-  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +25,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "PUBLIC_URL=https://dminones.github.io/guiahotelera/ gh-pages -d build",
+    "deploy-ghb": "npm run build && node deploy",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
