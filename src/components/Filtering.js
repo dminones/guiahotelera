@@ -18,15 +18,16 @@ class CategorySelect extends Component {
     let self = this
     var url = new URL(config.apiUrl+'/item-accommodationtype')
     
+    /*
     var filter = {}
     console.log(this.props)
     if(this.props.destination) {
       filter._destination = this.props.destination
-    }
+    }*/
     
-    console.log("filtering: ",filter)
-    if(filter) {
-      Object.keys(filter).forEach(key => url.searchParams.append(key, filter[key]))
+    console.log("filtering: ",this.props.filter)
+    if(this.props.filter) {
+      Object.keys(this.props.filter).forEach(key => url.searchParams.append(key, this.props.filter[key]))
     }
     
     fetch(url).then(function(response) {
@@ -139,7 +140,7 @@ export default class Filtering extends Component {
         </div>
 
         <div className="row with-forms">
-            <CategorySelect destination={this.props.filter._destination} 
+            <CategorySelect filter={this.props.filter} 
                             onChange={this.handleCategoryChange}
                             onKeyPress={this.handleKeyPress} />
         </div>

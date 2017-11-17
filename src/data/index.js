@@ -14,3 +14,6 @@ export function getRandomImage() {
 	return item
 	*/
 }
+
+const strings  = require('./strings.json')
+export { strings }

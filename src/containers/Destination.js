@@ -43,7 +43,7 @@ export default class Destination extends Component {
 		return(
 			<div>
 			  <Header src={ destination.image } title={ destination.name } headerFixed={true} />
-			  <Listing destination={destination} />
+			  <Listing destination={destination} category={'Alojamiento'} />
 			</div>
 		)
 	}

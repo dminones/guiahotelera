@@ -90,9 +90,13 @@ export default class Banners extends Component {
 		fetch(config.apiUrl+'/banner?_destination=null')
 		  .then(function(response) {
 		    response.json().then(function(json) {
-		      self.setState({
-		        results : json
-		      })
+		    	if(json.error) {
+		    		console.log(json.error)
+		    	} else {
+		    		self.setState({
+			        	results : json
+			      	})
+		    	}
 		    })
 		})
 	}
@@ -122,7 +126,6 @@ export default class Banners extends Component {
 	}
 
 	render () {
-		console.log(this.state.results)
 		if(this.state.results.length <= 0) {
 			return null
 		}
@@ -133,7 +136,8 @@ export default class Banners extends Component {
 				{/* <Subtitle>Banners</Subtitle> */}
 				<ColumnsCards>
 				{
-					this.state.results.map((item, index) => 
+
+					this.state.results.map((item) =>
 						(
 							<Card key={item._id}>
 								<a href={ item.link } target={ item.target } >

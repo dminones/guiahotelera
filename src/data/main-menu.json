@@ -1,4 +1,7 @@
 {
-  "left": [],
+  "left": [{
+      "href":"/restaurants",
+      "html":"Restaurants"
+    }],
   "right": []
 }	

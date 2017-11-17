@@ -4,6 +4,7 @@ import config from '../config'
 import banner from '../images/ad_350x350.jpg'
 import '../css/icons.css';
 import './Components.css';
+import { strings } from '../data'
 
 function Sorting() {
   return(
@@ -11,11 +12,12 @@ function Sorting() {
   )
 }
 
-function ResultList({ results, destination }) {
+function ResultList({ results, destination, category }) {
+  const catText = strings[category] ? strings[category].plural : 'Atracciones'
   return(
     <div className="row">
       <div className="col-lg-12 col-md-12">
-        <h3 className="margin-top-0 margin-bottom-30">Alojamientos en { destination.name } </h3>
+        <h3 className="margin-top-0 margin-bottom-30">{ catText } en { destination ? destination.name : 'Bolivia' } </h3>
       </div>
       {results.map((item) => (
         <ResultListItem key={item._id} item={item} />
@@ -28,10 +30,20 @@ export default class Listing extends Component {
 
   constructor(props) {
     super(props)
+    var filter = {}
+    if (props.destination) {
+      filter._destination = props.destination._id
+    }
+
+    if (props.category) {
+      filter.category = props.category
+    }
+
     this.state = {
       results : [],
       banners: [],
-      filter: { _destination: this.props.destination._id }
+      filter: filter,
+      showBanners: (props.showBanners === false) ? false : true
     }
 
     this.onChangeFilter = this.onChangeFilter.bind(this)
@@ -50,7 +62,12 @@ export default class Listing extends Component {
   getBanners() {
     let self = this
 
-    fetch(config.apiUrl+'/banner?_destination='+this.props.destination._id)  
+    var url = new URL(config.apiUrl+'/banner')
+    if(this.props.destination) {
+      url.searchParams.append('_destination', this.props.destination._id)
+    }
+
+    fetch(url)  
       .then(function(response) {
         response.json().then(function(json) {
             self.setState({
@@ -95,13 +112,15 @@ export default class Listing extends Component {
         <div className="row">
           <div className="col-lg-9 col-md-8 padding-right-30">
             <Sorting />
-            <ResultList results={this.state.results} destination={this.props.destination} />
+            <ResultList results={this.state.results} 
+                        destination={this.props.destination}
+                        category={this.props.category } />
           </div>
           <div className="col-lg-3 col-md-4">
             <Filtering filter={this.state.filter} onChange={ this.onChangeFilter }/>
-            {
+            { this.state.showBanners &&
               this.state.banners.map((item) => (
-                <a href={ item.link } target={ item.target } >
+                <a key={item._id} href={ item.link } target={ item.target } >
                   <img key={item.id} src={ item.src } style={ { marginBottom:'10px', width:'100%'} } /> 
                 </a>
               ))

@@ -4,7 +4,7 @@ import {
   Switch
 } from 'react-router-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { SingleItem, NoMatch, Destination, Home } from './containers/'
+import { SingleItem, NoMatch, Destination, Home, Restaurants } from './containers/'
 import { NavBar, TitleBar, Footer, Header } from './components/'
 
 import './css/icons.css';
@@ -65,6 +65,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={PageShell(Home)} />
           {/*<Route exact path="/hostel" component={PageShell(Hostels)} />*/}
+          <Route exact path="/restaurants" component={PageShell(Restaurants)} />
           <Route path={`/hotel/:slug`} component={PageShell(SingleItem)}/>
           <Route path="/d/:slug" component={PageShell(DestinationRouter)} />
           <Route component={PageShell(NoMatch)}/>
