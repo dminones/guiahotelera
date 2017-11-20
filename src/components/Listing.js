@@ -5,6 +5,8 @@ import banner from '../images/ad_350x350.jpg'
 import '../css/icons.css';
 import './Components.css';
 import { strings } from '../data'
+import { SideBanners, Categories } from './'
+//import { Categories } from './'
 
 function Sorting() {
   return(
@@ -118,13 +120,8 @@ export default class Listing extends Component {
           </div>
           <div className="col-lg-3 col-md-4">
             <Filtering filter={this.state.filter} onChange={ this.onChangeFilter }/>
-            { this.state.showBanners &&
-              this.state.banners.map((item) => (
-                <a key={item._id} href={ item.link } target={ item.target } >
-                  <img key={item.id} src={ item.src } style={ { marginBottom:'10px', width:'100%'} } /> 
-                </a>
-              ))
-            }
+            <Categories current={this.props.category} destination={this.props.destination} />
+            <SideBanners banners={this.state.banners} showBanners={this.state.showBanners} />
           </div>
         </div>
       </div>

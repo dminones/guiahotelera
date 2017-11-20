@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import config from '../config/'
 import {
   Link
 } from 'react-router-dom'
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Title = styled.h3`
 	font-size: 30px;

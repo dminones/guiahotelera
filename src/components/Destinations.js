@@ -32,7 +32,7 @@ export default class Destinations extends Component {
 		let self = this
 		var url = new URL(config.apiUrl+'/destination')
 		if (self.props.destination) {
-			var params = { parent:self.props.destination.id }
+			var params = { parent:self.props.destination.id, onlyOrdered:1 }
 			Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
 		}
 		fetch(url)

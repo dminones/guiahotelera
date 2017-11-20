@@ -188,6 +188,7 @@ export default class SingleItem extends Component {
     this.state = {
       hotel: null, 
     }
+
   }
 
   componentDidMount() {

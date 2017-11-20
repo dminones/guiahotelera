@@ -11,6 +11,8 @@ import Items from './Items.js'
 import Search from './Search.js'
 import Book from './Book.js'
 import Banners from './Banners.js'
+import SideBanners from './SideBanners.js'
+import Categories from './Categories.js'
 
 export { 	NavBar, 
 			TitleBar, 
@@ -24,5 +26,7 @@ export { 	NavBar,
 			Search,
 			Items, 
 			Book,
-			Banners
+			Banners,
+			SideBanners,
+			Categories
 		}
