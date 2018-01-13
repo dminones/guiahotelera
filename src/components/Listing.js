@@ -15,7 +15,9 @@ function Sorting() {
 }
 
 function ResultList({ results, destination, category }) {
-  const catText = strings[category] ? strings[category].plural : 'Atracciones'
+  const catText = category ? 
+                  (strings[category] && strings[category].plural ? strings[category].plural :  category) : 
+                  'Atracciones'
   return(
     <div className="row">
       <div className="col-lg-12 col-md-12">

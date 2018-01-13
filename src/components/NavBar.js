@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 import { getMainMenu } from '../data/'
 
-import logo from '../images/logo-bolivia.jpg';
+import config from '../config';
 
 function Menu ({ menu }) {
   if(menu instanceof Array) {
@@ -46,7 +46,7 @@ export default class NavBar extends Component {
 		      <div id="header" >
 		        <div className="container">     
 		            <div id="logo">
-		              <Link to="/"><img src={ logo } alt="" /></Link>
+		              <Link to="/"><img src={ config.site.logo } alt="" /></Link>
 		            </div>
 
               {/* 

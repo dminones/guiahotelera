@@ -9,10 +9,12 @@ import { NavBar, TitleBar, Footer, Header } from './components/'
 
 import './css/icons.css';
 import './css/style.css';
-import './css/colors/green.css';
+//import './css/colors/green.css';
 
 import './App.css';
 import hostelHeader from './images/IL-hi-chicago-gallery-02.jpg';
+
+import config from './config';
 
 function Hostels({match}) {
   return(
@@ -58,7 +60,10 @@ const PageShell = Page => {
 };
 
 class App extends Component {
+
   render() {
+    console.log("Config", config.site)
+
     return (
       <div className="App"> 
         <NavBar />
@@ -71,7 +76,6 @@ class App extends Component {
           <Route component={PageShell(NoMatch)}/>
         </Switch>
         <Footer />
-        <div id="backtotop"><a href="listings-list-with-sidebar.html#"></a></div>
       </div>
     );
   }

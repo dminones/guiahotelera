@@ -24,8 +24,10 @@ const LinkList = styled.ul`
 	list-style-type: none;
 	padding: 0;
 
-	&: hover a{
-		color:#00a948;
+	li {
+		&: hover a{
+			color:#00a948;
+		}
 	}
 `
 
@@ -79,7 +81,7 @@ export default class Categories extends Component {
 					this.state.categories.map((cat)=> (
 						<li>
 							<Link key={cat} to={ `/d/${this.props.destination.slug}?category=${cat}` } >
-								{strings[cat] ? strings[cat].plural : strings[cat]}
+								{strings[cat] && strings[cat].plural ? strings[cat].plural : cat}
 							</Link>
 						</li>
 					))

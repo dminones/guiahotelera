@@ -1,8 +1,9 @@
+import sites from './sites';
+
+const site = process.env.REACT_APP_SITE || "bolivia";
 const config = {
-	apiUrl : "https://hotelguia.herokuapp.com",
-	title: "Guia Hotelera Bolivia",
-	logo: "logo-bolivia",
-	color: "green",
+	apiUrl : "https://api-guiahotelera.now.sh",
+	site: sites[site]
 }
 
 export { config }

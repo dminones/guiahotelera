@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
+import { render } from 'react-snapshot';
 import { BrowserRouter as Router } from 'react-router-dom';
 import configuration from './config';
 import config from 'react-global-configuration';
@@ -16,5 +17,5 @@ const AppClient = () => (
   </Router>
 );
 
-ReactDOM.render(<AppClient />, document.getElementById('root'));
+render(<AppClient />, document.getElementById('root'));
 registerServiceWorker();

@@ -1,4 +1,24 @@
 import React from 'react';
+import config from '../config/'
+
+const otherSites = [
+  { 
+    name: "Argentina",
+    href: "http://www.guiahoteleraargentina.com"
+  },
+  { 
+    name: "Chile",
+    href: "http://www.guiahotelerachile.com"
+  },
+  { 
+    name: "Bolivia",
+    href: "http://www.guiahotelerabolivia.com"
+  },
+  { 
+    name: "Paraguay",
+    href: "http://www.guiahoteleraparaguay.com"
+  },
+]
 
 export default function Footer() {
   return(
@@ -9,9 +29,12 @@ export default function Footer() {
           <div className="col-md-4 col-sm-6 ">
             <h4>Más Destinos</h4>
             <ul className="footer-links" style={{width:'100%'}}>
-              <li><a href="http://www.guiahoteleraargentina.com" target="_blank">Argentina</a></li>
-              <li><a href="http://www.guiahotelerachile.com/" target="_blank">Chile</a></li>
-              <li><a href="http://www.guiahoteleraparaguay.com/" target="_blank">Paraguay</a></li>
+              { 
+                otherSites.map( (item) => {
+                  if(item.name !== config.site.country)
+                    return (<li key={item.name} ><a href={item.href} target="_blank">{item.name}</a></li>)
+                }) 
+              }
             </ul>
             <div className="clearfix"></div>
           </div>    
@@ -29,12 +52,12 @@ export default function Footer() {
           <div className="col-md-4 col-sm-12">
             <h4>Contacto</h4>
             <div className="text-widget">
-              Guia Hotelera Bolivia <br/>
-              E-Mail: <a href="mailto:info@guiahotelerabolivia.com">info@guiahotelerabolivia.com</a>
+              {config.site.name} <br/>
+              E-Mail: <a href={`mailto:${config.site.email}`}>{config.site.email}</a>
             </div>
 
             <ul className="social-icons margin-top-20">
-              <li><a className="facebook" href="https://www.facebook.com/GuiaHoteleraBolivia/"><i className="icon-facebook"></i></a></li>
+              <li><a className="facebook" href={config.site.facebook}><i className="icon-facebook"></i></a></li>
             </ul>
 
           </div>
@@ -43,7 +66,7 @@ export default function Footer() {
         
         <div className="row">
           <div className="col-md-12">
-            <div className="copyrights">© 2008 guiahotelerabolivia.com All rights reserved</div>
+            <div className="copyrights">{config.site.trademark}</div>
           </div>
         </div>
 
