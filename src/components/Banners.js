@@ -87,7 +87,7 @@ export default class Banners extends Component {
 
 	updateBanners() {
 		let self = this
-		fetch(config.apiUrl+'/banner?_destination=null')
+		fetch(config.apiUrl+'/banner?_destination=null&site='+this.props.site)
 		  .then(function(response) {
 		    response.json().then(function(json) {
 		    	if(json.error) {

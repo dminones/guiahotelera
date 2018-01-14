@@ -39,7 +39,7 @@ export default class Items extends Component {
 	updateItems() {
 		let self = this
 		var url = new URL(config.apiUrl+'/item')
-		var params = { publicationType:"Premium"}
+		var params = { publicationType:"Premium", site:this.props.site}
 		Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
 
 		fetch(url)

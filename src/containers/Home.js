@@ -24,9 +24,9 @@ export default function Home () {
 			<Header src={ getRandomImage() } headerSize="Big" headerFixed={false} >
 				<SearchContainer />
 			</Header>
-			<Destinations page={6} />
-			<Items />
-			<Banners page={6} />
+			<Destinations page={6} site={config.site.slug} />
+			<Items site={config.site.slug} />
+			<Banners page={6} site={config.site.slug} />
 		</div>
 	)
 }
