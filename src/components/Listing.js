@@ -21,7 +21,7 @@ function ResultList({ results, destination, category }) {
   return(
     <div className="row">
       <div className="col-lg-12 col-md-12">
-        <h3 className="margin-top-0 margin-bottom-30">{ catText } en { destination ? destination.name : 'Bolivia' } </h3>
+        <h3 className="margin-top-0 margin-bottom-30">{ catText } en { destination ? destination.name : config.site.country } </h3>
       </div>
       {results.map((item) => (
         <ResultListItem key={item._id} item={item} />
@@ -70,6 +70,10 @@ export default class Listing extends Component {
     if(this.props.destination) {
       url.searchParams.append('_destination', this.props.destination._id)
     }
+    if(this.props.site) {
+      url.searchParams.append('site', this.props.site)
+    }
+    console.log(url)
 
     fetch(url)  
       .then(function(response) {
@@ -88,6 +92,11 @@ export default class Listing extends Component {
     if(filter) {
       Object.keys(filter).forEach(key => url.searchParams.append(key, filter[key]))
     }
+
+    if(this.props.site) {
+      url.searchParams.append('site', this.props.site)
+    }
+    console.log(url)
 
     fetch(url).then(function(response) {
       var contentType = response.headers.get("content-type");
