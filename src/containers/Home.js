@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, Destinations, Search, Items, Banners } from '../components'
 import { getRandomImage } from '../data';
 import config from '../config'
+import Helmet from 'react-helmet';
 
 function SearchContainer() {
 	return (
@@ -21,6 +22,7 @@ function SearchContainer() {
 export default function Home () {
 	return (
 		<div>
+			<Helmet title="Guia Hotelera Argentina!!" />
 			<Header src={ getRandomImage() } headerSize="Big" headerFixed={false} >
 				<SearchContainer />
 			</Header>
